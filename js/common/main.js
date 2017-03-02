@@ -10,23 +10,23 @@ requirejs.config({
         //util:'js/common/util',
         jqueryCookie:'lib/jquery/jquery.cookie',
         //artTemplate:'lib/artTemplate-3.0.1/template',
-        //nprogress:'lib/nprogress/nprogress',
+        nprogress:'lib/nprogress/nprogress',
         //datepicker:'lib/bootstrap-datepicker/js/bootstrap-datepicker',
         //datepickerLanguage:'lib/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
         //
-        //index:'js/index',
-        //userList:'js/user/list',
-        //userProfile:'js/user/profile',
-        //courseAdd:'js/course/add',
-        //courseAddStep1:'js/course/add_step1',
-        //courseAddStep2:'js/course/add_step2',
-        //courseAddStep3:'js/course/add_step3',
-        //courseCategory:'js/course/category',
-        //courseCategoryAdd:'js/course/category_add',
-        //courseList:'js/course/list',
-        //courseTopic:'js/course/topic',
-        //teacherAdd:'js/teacher/add',
-        //teacherList:'js/teacher/list',
+        index:'js/index',
+        userList:'js/user/list',
+        userProfile:'js/user/profile',
+        courseAdd:'js/course/add',
+        courseAddStep1:'js/course/add_step1',
+        courseAddStep2:'js/course/add_step2',
+        courseAddStep3:'js/course/add_step3',
+        courseCategory:'js/course/category',
+        courseCategoryAdd:'js/course/category_add',
+        courseList:'js/course/list',
+        courseTopic:'js/course/topic',
+        teacherAdd:'js/teacher/add',
+        teacherList:'js/teacher/list',
         homeLogin:'js/home/login'
     },
     shim:{
@@ -36,6 +36,12 @@ requirejs.config({
         }
     }
 })
+
+/*最最开始调用进度条*/
+require(['nprogress'],function (nprogress){
+    nprogress.start();
+})
+
 /*对于都需要加载的js优先加载*/
 require(['jquery','bootstrap','common']);
 
@@ -60,8 +66,56 @@ require(['jquery','bootstrap','common']);
         }
 
         switch (pathname){
+            case '/html/user/list.html':
+                //根据上面的路径知道代表userList
+                require(['userList']);
+                break;
+            case '/html/user/profile.html':
+                require(['userProfile']);
+                break;
+            case '/html/teacher/add.html':
+                require(['teacherAdd']);
+                break;
+            case '/html/teacher/list.html':
+                require(['teacherList']);
+                break;
+            /*course*/
+            case '/html/course/add.html':
+                require(['courseAdd']);
+                break;
+            case '/html/course/add_step1.html':
+                require(['courseAddStep1']);
+                break;
+            case '/html/course/add_step2.html':
+                require(['courseAddStep2']);
+                break;
+            case '/html/course/add_step3.html':
+                require(['courseAddStep3']);
+                break;
+            case '/html/course/category.html':
+                require(['courseCategory']);
+                break;
+            case '/html/course/category_add.html':
+                require(['courseCategoryAdd']);
+                break;
+            case '/html/course/list.html':
+                require(['courseList']);
+                break;
+            case '/html/course/topic.html':
+                require(['courseTopic']);
+                break;
+            /*home*/
             case '/html/home/login.html':
-                require(['homeLogin']);
+                require(['login']);
+                break;
+            case '/html/home/repass.html':
+                require(['repass']);
+                break;
+            case '/html/home/settings.html':
+                require(['settings']);
+                break;
+            case '/':
+                require(['index']);
                 break;
         }
     })

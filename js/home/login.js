@@ -1,8 +1,9 @@
 /**
  * Created by Administrator on 2017/3/2.
  */
-define(['jquery','jqueryCookie'],function ($,undefined){
+define(['jquery','jqueryCookie','nprogress'],function ($,undefined,nprogress){
 
+    nprogress.done();
     /*----如果之前登录过,就从cookie里取上次登录过的用户名以及头像-----------------------------------------------------------------------*/
     if($.cookie('userInfo')){
         var userInfo = JSON.parse($.cookie('userInfo'));

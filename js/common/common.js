@@ -3,6 +3,14 @@
  */
 define(['jquery','jqueryCookie'],function ($,undefined){
 
+    /*----给有ajax请求的加入loading效果-----------------------------------------------------------------------*/
+    $(document).ajaxStart(function (){
+        $('.overlay').show();
+    }).ajaxStop(function (){
+        $('.overlay').hide();
+    })
+
+
     /*----给所有页面的侧边栏设置用户名和头像-----------------------------------------------------------------------*/
     var userInfo;
     try{
@@ -25,5 +33,11 @@ define(['jquery','jqueryCookie'],function ($,undefined){
             }
         })
     })
+
+    /*----左边手风琴导航功能-----------------------------------------------------------------------*/
+    $('.aside .navs li a').on('click',function (){
+        $(this).next().slideToggle();
+    })
+    $('.aside .navs li a').filter('[href= "'+ location.pathname +'"]').addClass('active').parents('ul').show()
 
 })
