@@ -55,13 +55,9 @@
             </div>
         </div>
     </div>
-    
-    <script src="./assets/jquery/jquery.min.js"></script>
-    <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./assets/nprogress/nprogress.js"></script>
-    <script src="./assets/echarts/echarts.min.js"></script>
-    <script src="./js/common.js"></script>
-    <script>
+
+    <?php include('./html/common/script.html')?>
+    <!--<script>
 
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'));
@@ -89,6 +85,6 @@
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
 
-    </script>
+    </script>-->
 </body>
 </html>
