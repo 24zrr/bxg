@@ -9,7 +9,7 @@ requirejs.config({
         common:'js/common/common',
         //util:'js/common/util',
         jqueryCookie:'lib/jquery/jquery.cookie',
-        //artTemplate:'lib/artTemplate-3.0.1/template',
+        artTemplate:'lib/artTemplate-3.0.1/template',
         nprogress:'lib/nprogress/nprogress',
         //datepicker:'lib/bootstrap-datepicker/js/bootstrap-datepicker',
         //datepickerLanguage:'lib/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
